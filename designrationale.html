@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>
+  CS5744 Fall - Project 1 : Design of a software system
+</title>
+<link rel="icon" href="./images/icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- External Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- Inline CSS -->
+<style>
+  body {
+    position: relative;
+    /* required */
+  }
+
+  .list-group {
+    position: sticky;
+    /* Supported in latest version of Chrome, Firefox, Safari, Opera and Edge browsers */
+    top: 15px;
+    margin-right: 15px;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .list-group {
+      top: 80px;
+    }
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins", sans-serif
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .w3-half img {
+    margin-bottom: -6px;
+    margin-top: 16px;
+    opacity: 0.8;
+    cursor: pointer
+  }
+
+  .w3-half img:hover {
+    opacity: 1
+  }
+</style>
+
+
+<!-- Body -->
+
+<body data-spy="scroll" data-offset="15" data-target="#myScrollspy">
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-teal w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;"
+    id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px">Close Menu</a>
+
+    <!-- Sidebar Header -->
+    <div class="w3-container" style="display: flex; align-items:center; margin-bottom: 60px; font-size: 20px;">
+      <img src="./images/icon.png" style="width: 75px !important; height: 75px !important;" alt="feedback">
+      <p style="margin-left: 10px; margin-top: 15px;">User Feedback System</p>
+    </div>
+    <!-- Sidebar Content -->
+    <div class="w3-bar-block">
+      <a href="home.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="businessneed.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Business Need</a>
+      <a href="visionscope.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Vision & Scope</a>
+      <a href="requirements.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Requirements</a>
+      <a href="highleveldesign.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">High Level
+        Design</a>
+      <a href="designrationale.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Design
+        Rationale</a>
+      <a href="conclusion.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Conclusion</a>
+    </div>
+  </nav>
+
+  <!-- Top menu for small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-teal w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-teal w3-margin-right" onclick="w3_open()">☰</a>
+    <img src="./images/icon.png" style="width: 35px !important; height: 35px !important;" alt="feedback">
+    <span style="margin-left: 10px; margin-top: 15px;">User Feedback System</span>
+  </header>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
+
+
+  <div class="w3-main" style="margin-left:340px;margin-right:40px">
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+      <h1 class="w3-jumbo"><b>Design Rationale</b></h1>
+    </div>
+
+    <!-- Containers start below-->
+    <div class="row" style="margin-top:60px">
+      <div class="col-sm-9">
+
+        <div class="w3-container" id="designdecisions">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Design Decisions</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>We have used a hybrid architecture approach to ensure we provide a resilient, scalable and highly available
+            solution to our customers. We will now go over specifics of our design choices and explain the rationale
+            behind them.
+          </p>
+        </div>
+
+        <div class="w3-container" id="ood" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Object Oriented Design</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>Object-oriented architectural styles are focused on the data. When modelling a system in object-oriented
+            design, we begin by looking at the different kinds of data handled by the system to see how the system can
+            be broken down into abstract data types. UserFeedback system is a perfect fit since it is easy to model the
+            entities in form OOD.
+          </p>
+          <h3>Advantages of Object-Oriented Architecture</h3>
+          <ul style="list-style-type:disc;">
+            <li>
+              <h4>Modularity for easier troubleshooting</h4>
+              <p>OOP methods make code more maintainable. Identifying the source of errors becomes easier because
+                objects
+                are self-contained (encapsulation). The principles of good OOP design contribute to an application’s
+                maintainability.
+              </p>
+            </li>
+            <li>
+              <h4>Reuse of code through inheritance</h4>
+              <p>Because objects contain both data and functions that act on data, objects can be thought of as
+                self-contained “boxes” (encapsulation). This feature makes it easy to reuse code while enhancing
+                systems.
+              </p>
+            </li>
+            <li>
+              <h4>Scalable</h4>
+              <p>OO applications are more scalable then their structured programming roots. As an object’s interface
+                provides a roadmap for reusing the object in new software, it also provides all the information needed
+                to replace the object without affecting other code. This makes it easy to replace old and aging code
+                with faster algorithms and newer technology.
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="w3-container" id="repositorybased" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Repository Based</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>Whenever components need to share and reuse data between them, there are two common issues that emerge:
+            <ul style="list-style-type:disc;">
+              <li>The state of a component is only temporary while the component is running. This means that any objects
+                created and any amount of data processing will be lost when the component stops running</li>
+              <li>Components may not need all the data that is stored in the files. There needs to be a way to
+                communicate the state of the data between multiple components</li>
+            </ul>
+          </p>
+          <p>
+            To solve both of the issues, a data-centric software architecture is used. This architecture can be achieved
+            by integrating a method of shared data storage, such as a database, into the overall system design
+            <ul style="list-style-type:disc;">
+              <li>Central data is the component used to store and serve data across all components that connect to it.
+              </li>
+              <li>Data accessors are the components that connect to the central data component. The data accessors make
+                queries and transactions against the information stored in the database</li>
+            </ul>
+          </p>
+          <p>
+            Since in this system we have a number of components working with the same data simultaneously, we have
+            chosen to use the repository pattern and use a relational database to store all the information
+            persistently, while the DAO layers in each component will assume the job to talk to the database
+          </p>
+          <p>
+            Databases ensure several data qualities, which are important to data-centric architectures. These are:
+            <ul style="list-style-type:disc;">
+              <li>Data integrity. A database ensures that data is accurate and consistent over its lifespan.
+              </li>
+              <li>Data persistence. A database ensures that data will live on after a process has been
+                terminated—databases can save data from any number of components.</li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="w3-container" id="layeredarchitecture" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Layered Architecture</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>Layering allows for applying “separation of concerns” into each of the layers. This layering provides
+            additional benefits as well such as scalability, resilience, maintainability, all of which are important
+            non-functional requirements for our system, hence we have chosen to use this architectural pattern. Because
+            of our utilization of this pattern, our business logic layer is entirely contained within the APIs.
+          </p>
+          <p>
+            <h3>Advantages of Layered Architecture</h3>
+            <ul style="list-style-type:disc;">
+              <li>In software, a layer is a collection of components that work together towards a common purpose</li>
+              <li>The key characteristic of a layered architecture is that the components in a layer only interact with
+                components in their own layer or adjacent layers - Principle of least knowledge</li>
+              <li>The interfaces provided by the components of a layer should be well defined and driven by the needs of
+                the system</li>
+              <li>It supports the separation of concerns, because each layer is a set of components with similar
+                responsibility or purpose</li>
+              <li>It is modular and loosely coupled, as each layer only communications with one or two other layers,
+                allowing for different implementations to be easily swapped</li>
+              <li>It can be adapted so that layering is not always strict, which helps manage design complexity or
+                provide a starting point for structuring the system</li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="w3-container" id="microservicesarchitecture" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Microservices Architecture</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>We have used microservices in favor of a monolithic architecture. This helps in maintainability of the
+            software as very specific component or service needs to be modified and redeployed whenever there is a
+            change.
+            <h3>Advantages of microservices architecture</h3>
+            <ul style="list-style-type:disc;">
+              <li>
+                <h4>Easier to Build and Maintain Apps</h4>
+                <p>The key principle of microservices is simplicity. Managing the code becomes less painful because each
+                  microservice is, in fact, a separate chunk of code. Services can be implemented using different
+                  programming languages, databases and software environments. This allows each service to be deployed,
+                  rebuilt, re-deployed and managed independently.</p>
+              </li>
+              <li>
+                <h4>Improved Productivity and Speed</h4>
+                <p>The microservices architecture tackles the problem of productivity and speed by decomposing
+                  applications into manageable services that are faster to develop. Different teams can be working on
+                  different components simultaneously without waiting on each other.</p>
+              </li>
+              <li>
+                <h4>Scalability</h4>
+                <p>The microservice architecture allows decoupled services written in different programming languages to
+                  peacefully coexist with other fragments. With microservices, individual services can scale separately
+                  from one another.</p>
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+
+      <!-- DO NOT MODIFY BELOW THIS -->
+
+      <!-- Modal for full size images on click-->
+      <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+        <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+          <img id="img01" class="w3-image">
+          <p id="caption"></p>
+        </div>
+      </div>
+
+      <div class="col-sm-3" id="myScrollspy">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action active" href="#designdecisions">Design Decisions</a>
+          <a class="list-group-item list-group-item-action" href="#ood">Object Oriented Design</a>
+          <a class="list-group-item list-group-item-action" href="#repositorybased">Repository Based</a>
+          <a class="list-group-item list-group-item-action" href="#layeredarchitecture">Layered Architecture</a>
+          <a class="list-group-item list-group-item-action" href="#microservicesarchitecture">Microservices
+            Architecture</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer-->
+  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:250px;padding-right:58px">
+    <p class="w3-right">CS5744 Fall - Project 1 : Design of a software system by Ravindra Agrawal</p>
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+  </script>
+
+</body>
+
+</html>

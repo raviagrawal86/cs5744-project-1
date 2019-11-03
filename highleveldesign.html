@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>
+  CS5744 Fall - Project 1 : Design of a software system
+</title>
+<link rel="icon" href="./images/icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- External Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- Inline CSS -->
+<style>
+  body {
+    position: relative;
+    /* required */
+  }
+
+  .list-group {
+    position: sticky;
+    /* Supported in latest version of Chrome, Firefox, Safari, Opera and Edge browsers */
+    top: 15px;
+    margin-right: 15px;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .list-group {
+      top: 80px;
+    }
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins", sans-serif
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .w3-half img {
+    margin-bottom: -6px;
+    margin-top: 16px;
+    opacity: 0.8;
+    cursor: pointer
+  }
+
+  .w3-half img:hover {
+    opacity: 1
+  }
+</style>
+
+
+<!-- Body -->
+
+<body data-spy="scroll" data-offset="15" data-target="#myScrollspy">
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-teal w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;"
+    id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px">Close Menu</a>
+
+    <!-- Sidebar Header -->
+    <div class="w3-container" style="display: flex; align-items:center; margin-bottom: 60px; font-size: 20px;">
+      <img src="./images/icon.png" style="width: 75px !important; height: 75px !important;" alt="feedback">
+      <p style="margin-left: 10px; margin-top: 15px;">User Feedback System</p>
+    </div>
+    <!-- Sidebar Content -->
+    <div class="w3-bar-block">
+      <a href="home.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="businessneed.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Business Need</a>
+      <a href="visionscope.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Vision & Scope</a>
+      <a href="requirements.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Requirements</a>
+      <a href="highleveldesign.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">High Level
+        Design</a>
+      <a href="designrationale.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Design
+        Rationale</a>
+      <a href="conclusion.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Conclusion</a>
+    </div>
+  </nav>
+
+  <!-- Top menu for small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-teal w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-teal w3-margin-right" onclick="w3_open()">☰</a>
+    <img src="./images/icon.png" style="width: 35px !important; height: 35px !important;" alt="feedback">
+    <span style="margin-left: 10px; margin-top: 15px;">User Feedback System</span>
+  </header>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
+
+
+  <div class="w3-main" style="margin-left:340px;margin-right:40px">
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+      <h1 class="w3-jumbo"><b>High Level Design</b></h1>
+    </div>
+
+    <!-- Containers start below-->
+    <div class="row" style="margin-top:60px">
+      <div class="col-sm-9">
+
+        <div class="w3-container" id="designthoughts">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Design Thoughts</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>While designing the system we considered both functional and non-functional requirements and keeping these
+            in mind, I have decided to implement a hybrid architecture which will be applied to different components
+            differently. For example, we are using Abstract Data Types and Object oriented design as an overarching
+            architectural pattern and will be applying it whenever possible. There are several candidates which are well
+            suited for this pattern given their relationship and resemblance to Object oriented design.
+          </p>
+          <p>
+            We would also be using repository pattern for data stores. Repository pattern is best suited when data has
+            to be shared between different system components and that is exactly the case here. By using a central
+            database, we will be able to ensure data integrity, persistence and availability. Databases are usually
+            considered single point of failure but we will use a Highly Available solution of database, which is
+            provided by most database vendors these days in some variation.
+          </p>
+          <p>
+            We would also be following client-server architecture and implement our components using a three layered
+            architecture. This will ensure Separation of Concerns within the components and ensure easy maintainability.
+          </p>
+          <p>
+            Finally, our reporting system will use pipes and filters. We think it is the best mechanism to extract and
+            format the data. Since the process will be running sparsely, i.e. nightly or on demand, pipes and filters
+            will provide an easily maintainable mechanism with acceptable performance for reporting.
+          </p>
+          <p>
+            We will explain the architecture of the system using Kruchten's 4 + 1 Model View to explain how components
+            function and interact with each other from different perspectives.
+          </p>
+        </div>
+
+        <div class="w3-container" id="developmentview" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Development View</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>Below is the high level component view of our conceptual system. This view enables to visualize the
+            components in the system and how they interact on a very high level. This diagram also strengthens the
+            layered architecture of our system as it clearly depicts the components according to the layer they support.
+          </p>
+          <img src="./images/SystemIntegration.jpeg" style="width:100%" onclick="onClick(this)"
+            alt="systemintegrationdiagram">
+        </div>
+
+        <div class="w3-container" id="logicalview" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Logical View</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>Logical view focuses mostly on achieving the functional requirements of a system. Here we are using a UML
+            class diagram to show the logical view of the system. This view also depicts the Object Oriented nature of
+            the architecture and repository pattern.
+          </p>
+          <img src="./images/LogicalView.jpeg" style="width:100%" onclick="onClick(this)" alt="logicalsystemview">
+        </div>
+
+        <div class="w3-container" id="processview" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Process View</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>Process view will elaborate how different components will interact with each other for a given scenario or
+            use case. We will use sequence diagrams to depict interaction between components in most common use cases.
+          </p>
+          <p>
+            We are using two different sequence diagrams to indicate two different use cases. First one elaborates how
+            the components will interact and in what sequence to facilitate the use case of an end user providing
+            feedback via the Customer’s web application. As we can see the components are interacting in a layered
+            fashion with each layer performing a unique responsibility.
+          </p>
+          <img src="./images/sequencediagram1.jpeg" style="width:100%" onclick="onClick(this)" alt="sequence diagram 1">
+          <p>
+            The second sequence diagram elaborates the use case when an Admin is creating a new widget.
+          </p>
+          <img src="./images/sequencediagram2.jpeg" style="width:100%" onclick="onClick(this)" alt="sequence diagram 2">
+        </div>
+
+        <div class="w3-container" id="deploymentview" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Deployment View</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>We are using AWS as our cloud provider and will be using resources specific to AWS. To ensure we meet NFRs
+            for availability and resilience, we are deploying all components across two different availability zones
+            with each component having at least one failover node. All the traffic is load balanced to ensure seamless
+            scalability.
+          </p>
+          <p>
+            Additionally, we are also using database replication across different availability zone, this will ensure
+            that database does not becomes a single point of failure.
+          </p>
+          <img src="./images/DeploymentDiagram.jpeg" style="width:100%" onclick="onClick(this)"
+            alt="deployment diagram">
+        </div>
+
+        <div class="w3-container" id="usecases" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Use Cases</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>We will define three most common use cases and indicate on a high level which components will be involved
+            in fulfilling the requests.
+          </p>
+
+          <h3>Use Case 1: User submitting feedback</h3>
+          <p>
+            Here we see a typical flow in which a user of customer’s application can submit feedback at anytime while
+            using the application.
+          </p>
+          <img src="./images/usecase1.png" style="width:100%" onclick="onClick(this)" alt="use case 1">
+
+          <h3>Use Case 2: An admin customer creates a new feedback widget</h3>
+          <p>
+            Here we explain how an admin can use the Feedback Management portal to create new feedback widgets.
+          </p>
+          <img src="./images/usecase2.png" style="width:100%" onclick="onClick(this)" alt="use case 2">
+
+          <h3>Use Case 3: An admin generating an out-of-box report</h3>
+          <p>
+            Here we can explain how an admin customer can login to the Feedback Management Portal and generate a report.
+          </p>
+          <img src="./images/usecase3.png" style="width:100%" onclick="onClick(this)" alt="use case 3">
+        </div>
+
+      </div>
+
+      <!-- DO NOT MODIFY BELOW THIS -->
+
+      <!-- Modal for full size images on click-->
+      <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+        <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+          <img id="img01" class="w3-image">
+          <p id="caption"></p>
+        </div>
+      </div>
+
+      <div class="col-sm-3" id="myScrollspy">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action active" href="#designthoughts">Design Thoughts</a>
+          <a class="list-group-item list-group-item-action" href="#developmentview">Development View</a>
+          <a class="list-group-item list-group-item-action" href="#logicalview">Logical View</a>
+          <a class="list-group-item list-group-item-action" href="#processview">Process View</a>
+          <a class="list-group-item list-group-item-action" href="#deploymentview">Deployment View</a>
+          <a class="list-group-item list-group-item-action" href="#usecases">Use Cases</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer-->
+  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:250px;padding-right:58px">
+    <p class="w3-right">CS5744 Fall - Project 1 : Design of a software system by Ravindra Agrawal</p>
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+  </script>
+
+</body>
+
+</html>

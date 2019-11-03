@@ -154,7 +154,7 @@
           <hr style="width:50px;border:5px solid teal" class="w3-round">
           <p>
             <table class="table table-hover table-bordered">
-              <thead>
+              <thead class="thead-dark">
                 <tr>
                   <th>Major Feature #</th>
                   <th>Major Feature Description</th>
@@ -204,8 +204,27 @@
                   <td>System should discrete roles built in to allow granular levels of security</td>
                   <td>Must have</td>
                 </tr>
+                <tr>
+                  <td>MF.8</td>
+                  <td>Documentation/User Guide around using the System should be developed. This Documentation should be
+                    comprehensive and easy to understand/implement at the same time</td>
+                  <td>Must have</td>
+                </tr>
               </tbody>
             </table>
+          </p>
+        </div>
+
+        <div class="w3-container" id="notinscope" style="margin-top:75px">
+          <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Not In Scope</b></h1>
+          <hr style="width:50px;border:5px solid teal" class="w3-round">
+          <p>Major features described above define the scope of the system. The features listed below are not in scope
+            and provides clarification to the scope:
+            <ul style="list-style-type:disc;">
+              <li>This system will not support non-web applications i.e. Desktop, GUI applications, mobile applications
+                etc.</li>
+              <li>This system will not accept or store feedback for anonymous users.</li>
+            </ul>
           </p>
         </div>
 
@@ -227,10 +246,17 @@
           <a class="list-group-item list-group-item-action active" href="#vision">Vision</a>
           <a class="list-group-item list-group-item-action" href="#scope">Scope</a>
           <a class="list-group-item list-group-item-action" href="#majorfeatures">Major Features</a>
+          <a class="list-group-item list-group-item-action" href="#notinscope">Not In Scope</a>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Footer-->
+  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:250px;padding-right:58px">
+    <p class="w3-right">CS5744 Fall - Project 1 : Design of a software system by Ravindra Agrawal</p>
+  </div>
+
   <script>
     // Script to open and close sidebar
     function w3_open() {
